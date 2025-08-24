@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+
+import FormattedDate from "@/components/FormattedDate.astro";
+import BtnBackBlog from "@/components/BtnBackBlog.astro";
+import MainLayout from "@/layouts/MainLayout.astro";
+
+import { type CollectionEntry } from "astro:content";
+type Props = CollectionEntry<"blog">["data"] & { title: string };
+
+const { title, heroImage, pubDate, tags } = Astro.props;
+---
+
+<MainLayout title={title}>
+  <div
+    class="bg-dark-neutral max-w-article-size my-5 mx-auto p-5 w-full space-y-4"
+  >
+    <BtnBackBlog />
+
+    <div transition:name={title} class="border-extra-soft-white w-full max-w-[none] rounded-xl border">
+      <article>
+        <Image
+          class="w-full rounded-t-xl object-cover"
+          width={1020}
+          height={520}
+          src={heroImage}
+          alt=""
+        />
+
+        <div
+          class="w-full text-white prose prose-invert lg:prose-xl px-12 py-12"
+        >
+          <FormattedDate date={pubDate} />
+
+          <h1>{title}</h1>
+          <slot />
+        </div>
+      </article>
+    </div>
+
+    <BtnBackBlog />
+  </div>
+</MainLayout>

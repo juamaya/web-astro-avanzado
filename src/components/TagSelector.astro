@@ -1,0 +1,33 @@
+---
+import { getAllTags } from "@/utils/getAllTags";
+const tags = await getAllTags();
+import { Icon } from "astro-icon/components";
+---
+
+<div class="flex gap-3">
+  <span
+    id="opener"
+    class="w-12 h-12 rounded-full grid place-items-center border border-white cursor-pointer"
+  >
+    <Icon name="lucide:list-filter" class="text-white text-3xl" />
+  </span>
+
+  <div id="selector" class="opacity-0 transition-opacity">
+    {
+      tags.map((tag) => (
+        <a href={`/blog/tag/${tag.toLocaleLowerCase()}`}>
+          <span class="border-white m-3 my-3 self-start rounded border px-2 py-1 text-zinc-100">
+            {tag}
+          </span>
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<script data-astro-rerun>
+  document.getElementById("opener")?.addEventListener("click", () => {
+    const selector = document.getElementById("selector");
+    selector?.classList.toggle("opacity-0");
+  });
+</script>

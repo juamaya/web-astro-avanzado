@@ -1,0 +1,39 @@
+/* Register your custom font family and tell the browser where to find it. */
+@font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Bold.ttf') format('ttf');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Light.ttf') format('ttf');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }  
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Regular.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  } 
+
+  @font-face {
+    font-family: 'Roboto';
+    src: url('/fonts/Roboto-Medium.ttf') format('ttf');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+h1 {
+    font-family: "Roboto", arial, helvetica, system-ui, sans-serif;
+    color: blueviolet;
+    font-weight: 900;
+ 
+  }
